@@ -14,7 +14,10 @@ const initialState = {
 function handleTodos(todoState = [], action) {
   switch (action.type) {
     case ADD_TODO:
-      return [...todoState, { text: action.text, completed: false }];
+      return [
+        ...todoState,
+        { id: todoState.length, text: action.text, completed: false }
+      ];
     case TOGGLE_TODO:
       return todoState.map((item, index) => {
         if (action.index === index) {
